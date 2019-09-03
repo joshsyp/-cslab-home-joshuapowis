@@ -188,6 +188,29 @@ Rectangle & operator =(const rectangle & rhs)
     return *this;
 }
 
+string ToString() const
+{
+    stringstream out;
+    out << "[";
+    for (int i=0;i<sidesCount;i+=1)
+    {
+        out<< sides[i];
+        if(i+1 !=sidesCount)
+        {
+            out<<",";
+        }
+    }
+    out<<"]";
+    return out.str();
+}
+
+
+friend ostream& operator<<(ostream out, const Rectangle& obj)
+{
+    out << obj.ToString();
+    return out;
+}
+
 
 //
 ~Rectangle () {}
@@ -245,3 +268,29 @@ private:
     using   shape::Setsides;
     using   shape::Getsides;
     using   shape::Getsides const;
+
+// ToString method
+
+string ToString() const
+{
+    stringstream out;
+    out << "[";
+    for (int i=0;i<sidesCount;i+=1)
+    {
+        out<< sides[i];
+        if(i+1 !=sidesCount)
+        {
+            out<<",";
+        }
+    }
+    out<<"]";
+    return out.str();
+}
+
+
+friend ostream& operator<<(ostream out, const shape& obj)
+{
+    out << obj.ToString();
+    return out;
+}
+
