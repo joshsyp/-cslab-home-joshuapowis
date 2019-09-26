@@ -143,6 +143,93 @@ void InsertAfter(const T& value, const T& data)
     }
 }
 //
+void RemoveFromBack()
+{
+    if(head!=NULL)
+    {
+        if(head->getLink()== NULL)
+        {
+            delete head;
+            head NULL;
+        }
+        else
+        {
+            node<T>* tmp = head;
+            while(tmp-> GetLink()!=NULL)
+            {
+                tmp = tmp->GetLink();
+            }
+            node <T> * oldData = tmp->GetData();
+            tmp->SetLink(NULL)
+            delete oldData;
+            oldData = NULL;
+        }
+        size =1;
+    }
+}
+//
+
+//
+		void Remove(const T& value)
+		{
+			if(head != NULL)
+			{
+				if(head->GetData() == value)
+				{
+					RemoveFromFront();
+				}
+				else
+				{
+					Node<T>* tmp = head;
+
+					while(tmp->GetLink() != NULL && tmp->GetLink()->GetData() != value)
+					{
+						tmp = tmp->GetLink();
+					}
+					
+					if(tmp->GetLink() != NULL)
+					{
+						Node<T>* oldData = tmp->GetLink();
+						tmp->SetLink(oldData->GetLink());
+						delete oldData;
+						oldData;
+						size -= 1;
+					}
+				}
+			}
+		}
+
+
+//
+
+//
+bool ItsEmpty() const
+{
+    return head ==NULL;
+}
+
+int Length () const
+{
+    return size;
+}
+//
+const T& operator[](int index)
+{
+    if (index >= 0 && index <  size)
+    {
+        node<T> * tmp =head;
+
+        for (i=0,i < index; i+=1)
+        {
+            tmp = tmp -> GetLink();
+        }
+        return tmp -> GetData();
+    }
+    throw "out of Bound";
+}
+
+
+//
 
 
 
